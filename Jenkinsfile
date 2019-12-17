@@ -3,9 +3,9 @@ pipeline {
     stages {
        stage('Upload to AWS') {
              steps {
-                 withAWS(region:'us-east-2',credentials:'Jenkins_local') {
+                 withAWS(region:'us-east-1',credentials:'Jenkins_local') {
                  sh 'echo "Uploading content with AWS creds"'
-                     s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'D:/Job/Udacity_mentorship/Update_stack_IAM.yml', bucket:'jenkins-upload-aws')
+                     s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'Update_stack_IAM.yml', bucket:'jenkins-upload-aws')
                  }
              }
         }
